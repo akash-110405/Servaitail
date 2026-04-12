@@ -1,0 +1,25 @@
+package com.cmdb.Servaitail.controller;
+
+import com.cmdb.Servaitail.entity.AppCi;
+import com.cmdb.Servaitail.service.AppCiService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
+
+@RestController
+@RequestMapping("/api/link")
+@RequiredArgsConstructor
+public class AppCiController {
+
+    private final AppCiService appCiService;
+
+    @PostMapping
+    public AppCi link(@RequestBody UUID appId,@RequestBody UUID ciId){
+        return appCiService.link(appId, ciId);
+    }
+
+}
