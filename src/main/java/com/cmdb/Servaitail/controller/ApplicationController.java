@@ -3,10 +3,7 @@ package com.cmdb.Servaitail.controller;
 import com.cmdb.Servaitail.entity.Application;
 import com.cmdb.Servaitail.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,11 +15,11 @@ public class ApplicationController {
     private final ApplicationService applicationService;
 
     @PostMapping()
-    public Application create(Application application){
+    public Application create(@RequestBody Application application){
         return applicationService.create(application);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Application> getAll(){
         return applicationService.getAll();
     }

@@ -20,6 +20,7 @@ public class Ci {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     private String name;
     private Long deploy_type_id;
     private Long category_id;

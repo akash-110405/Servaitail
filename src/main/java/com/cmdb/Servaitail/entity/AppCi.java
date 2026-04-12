@@ -20,8 +20,15 @@ public class AppCi {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "app_id")
     private Application application;
+
+    @ManyToOne
+    @JoinColumn(name = "ci_id")
     private Ci ci;
+
     private Long role_id;
     private String notes;
     private LocalDateTime created_on;

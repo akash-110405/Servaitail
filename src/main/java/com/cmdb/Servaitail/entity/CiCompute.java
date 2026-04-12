@@ -20,7 +20,11 @@ public class CiCompute {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "ci_id")
     private Ci ci;
+
     private String host_name;
     private String host_ip;
     private String lan_segment;

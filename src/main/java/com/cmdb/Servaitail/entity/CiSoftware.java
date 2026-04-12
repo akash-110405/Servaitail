@@ -22,7 +22,12 @@ public class CiSoftware {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @ManyToOne
+    @JoinColumn(name = "ci_id")
     private Ci ci;
+
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
     private Vendor vendor;
     private String version;
     private Long license_type_id;

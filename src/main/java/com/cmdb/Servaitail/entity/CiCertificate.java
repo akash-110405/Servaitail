@@ -21,7 +21,11 @@ public class CiCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "ci_id")
     private Ci ci;
+
     private String domain;
     private String issuer;
     private Boolean is_ssl;

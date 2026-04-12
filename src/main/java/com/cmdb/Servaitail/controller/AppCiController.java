@@ -1,5 +1,6 @@
 package com.cmdb.Servaitail.controller;
 
+import com.cmdb.Servaitail.dto.LinkRequest;
 import com.cmdb.Servaitail.entity.AppCi;
 import com.cmdb.Servaitail.service.AppCiService;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class AppCiController {
     private final AppCiService appCiService;
 
     @PostMapping
-    public AppCi link(@RequestBody UUID appId,@RequestBody UUID ciId){
-        return appCiService.link(appId, ciId);
+    public AppCi link(@RequestBody LinkRequest linkRequest){
+        return appCiService.link(linkRequest.appId,linkRequest.ciId);
     }
 
 }

@@ -20,7 +20,11 @@ public class CiResource {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "ci_id")
     private Ci ci;
+
     private Long memory_gb;
     private Long cpu_cores;
     private Long storage_gb;

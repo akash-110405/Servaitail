@@ -20,6 +20,7 @@ public class Vendor {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     private String name;
     private String website;
     private String support_mail;
