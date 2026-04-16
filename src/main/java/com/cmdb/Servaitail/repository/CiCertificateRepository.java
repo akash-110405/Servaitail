@@ -3,7 +3,10 @@ package com.cmdb.Servaitail.repository;
 import com.cmdb.Servaitail.entity.CiCertificate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface CiCertificateRepository extends JpaRepository<CiCertificate, UUID> {
+
+    List<CiCertificate> findByCiId(UUID ciId);
 }
