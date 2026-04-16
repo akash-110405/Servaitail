@@ -30,4 +30,9 @@ public class CiController {
     public Optional<Ci> getCiById(@PathVariable UUID id){
         return ciService.getCiById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteCiById(@PathVariable UUID id){
+        ciService.deleteCiById(id);
+    }
 }

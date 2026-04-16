@@ -27,4 +27,7 @@ public class CiService {
         return ciRepository.findById(id);
     }
 
+    public void deleteCiById(UUID id){
+        ciRepository.deleteById(id);
+    }
 }

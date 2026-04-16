@@ -1,6 +1,5 @@
 package com.cmdb.Servaitail.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/app")
@@ -22,5 +24,15 @@ public class ApplicationController {
     @GetMapping()
     public List<Application> getAll(){
         return applicationService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Application> getAppById(@PathVariable UUID id){
+        return applicationService.getAppById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteAppById(@PathVariable UUID id){
+        applicationService.deleteAppById(id);
     }
 }
