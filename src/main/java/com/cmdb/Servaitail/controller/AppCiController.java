@@ -2,12 +2,10 @@ package com.cmdb.Servaitail.controller;
 
 import com.cmdb.Servaitail.dto.LinkRequest;
 import com.cmdb.Servaitail.entity.AppCi;
+import com.cmdb.Servaitail.entity.Application;
 import com.cmdb.Servaitail.service.AppCiService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -21,6 +19,12 @@ public class AppCiController {
     @PostMapping
     public AppCi link(@RequestBody LinkRequest linkRequest){
         return appCiService.link(linkRequest.appId,linkRequest.ciId);
+    }
+
+    @PutMapping("/{id}")
+    public AppCi update(@PathVariable UUID id,
+                        @RequestBody AppCi req){
+        return appCiService.update(id,req);
     }
 
 }
