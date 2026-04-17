@@ -30,7 +30,23 @@ public class CiComputeService {
         return ciComputeRepository.save(ciCompute);
     }
 
+    public CiCompute update(UUID id,CiCompute req ){
+
+        CiCompute compute = ciComputeRepository.findById(id).orElseThrow();
+
+        compute.setHost_name(req.getHost_name());
+        compute.setHost_ip(req.getHost_ip());
+        compute.setLan_segment(req.getLan_segment());
+        compute.setIs_virtual(req.getIs_virtual());
+        compute.setDatacenter(req.getDatacenter());
+        return ciComputeRepository.save(compute);
+    }
+
     public List<CiCompute> getByCiId(UUID ciId){
         return ciComputeRepository.findByCiId(ciId);
+    }
+
+    public void deleteComputeById(UUID id){
+        ciComputeRepository.deleteById(id);
     }
 }

@@ -26,8 +26,19 @@ public class CiComputeController {
         );
     }
 
-    @GetMapping
-    public List<CiCompute> getByCiId(UUID ciId){
+    @PutMapping("/{id}")
+    public CiCompute update(@PathVariable UUID id,
+                            @RequestBody CiCompute req){
+        return ciComputeService.update(id,req);
+    }
+
+    @GetMapping("/{ciId}")
+    public List<CiCompute> getByCiId(@PathVariable UUID ciId){
         return ciComputeService.getByCiId(ciId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteComputeById(@PathVariable UUID id){
+        ciComputeService.deleteComputeById(id);
     }
 }

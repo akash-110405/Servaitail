@@ -21,6 +21,12 @@ public class ApplicationController {
         return applicationService.create(application);
     }
 
+    @PutMapping("/{id}")
+    public Application update(@PathVariable UUID id,
+                              @RequestBody Application application){
+        return applicationService.update(id,application);
+    }
+
     @GetMapping()
     public List<Application> getAll(){
         return applicationService.getAll();

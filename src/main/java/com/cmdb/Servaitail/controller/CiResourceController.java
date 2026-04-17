@@ -26,10 +26,19 @@ public class CiResourceController {
         );
     }
 
+    @PutMapping("/{id}")
+    public CiResource update(@PathVariable UUID id,
+                             @RequestBody CiResource req){
+        return ciResourceService.update(id,req);
+    }
+
     @GetMapping("/{ciId}")
     public List<CiResource> getByCiId(@PathVariable UUID ciId){
         return ciResourceService.getByCIId(ciId);
-
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteResourceById(@PathVariable UUID id){
+        ciResourceService.deleteResourceById(id);
+    }
 }

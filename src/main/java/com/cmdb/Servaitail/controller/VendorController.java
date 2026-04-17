@@ -21,6 +21,12 @@ public class VendorController {
         return vendorService.createVendor(vendor);
     }
 
+    @PutMapping("/{id}")
+    public Vendor updateVendor(@PathVariable UUID id,
+                               @RequestBody Vendor vendor){
+        return vendorService.updateVendor(id,vendor);
+    }
+
     @GetMapping
     public List<Vendor> getAll(){
         return vendorService.getAll();

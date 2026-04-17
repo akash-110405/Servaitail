@@ -9,6 +9,7 @@ import com.cmdb.Servaitail.repository.VendorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -35,11 +36,28 @@ public class CiSoftwareService {
         return ciSoftwareRepository.save(ciSoftware);
     }
 
+    public CiSoftware update(UUID id, CiSoftware req){
+
+        CiSoftware sw = ciSoftwareRepository.findById(id).orElseThrow();
+
+        sw.setVersion(req.getVersion());
+        sw.setLicense_type_id(req.getLicense_type_id());
+        sw.setLicense_expiry(req.getLicense_expiry());
+        sw.setSupport_expiry(req.getSupport_expiry());
+        sw.setModified_on(LocalDateTime.now());
+
+        return ciSoftwareRepository.save(sw);
+    }
+
     public List<CiSoftware> getByCiId(UUID ciId){
         return ciSoftwareRepository.findByCiId(ciId);
     }
 
     public List<CiSoftware> getByVendorId(UUID vendorId){
         return ciSoftwareRepository.findByVendorId(vendorId);
+    }
+
+    public void deleteSoftwareById(UUID id){
+        ciSoftwareRepository.deleteById(id);
     }
 }

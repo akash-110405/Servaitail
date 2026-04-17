@@ -25,8 +25,19 @@ public class CiCertificateController {
         );
     }
 
-    @GetMapping
+    @PutMapping("/{id}")
+    public CiCertificate update(@PathVariable UUID id,
+                                @RequestBody CiCertificate req){
+        return ciCertificateService.update(id,req);
+    }
+
+    @GetMapping("/{ciId}")
     public List<CiCertificate> getByCiId(@PathVariable UUID ciId){
         return ciCertificateService.getByCiId(ciId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCertificateById(@PathVariable UUID id){
+        ciCertificateService.deleteCertficateById(id);
     }
 }

@@ -25,13 +25,24 @@ public class CiSoftwareController {
         );
     }
 
-    @GetMapping("/{ciId}")
+    @PutMapping("/{id}")
+    public CiSoftware update(@PathVariable UUID id,
+                             @RequestBody CiSoftware req){
+        return ciSoftwareService.update(id,req);
+    }
+
+    @GetMapping("/ci/{ciId}")
     public List<CiSoftware> getByCiId(@PathVariable UUID ciId){
         return ciSoftwareService.getByCiId(ciId);
     }
 
-    @GetMapping("/{vendorId}")
+    @GetMapping("/vendor/{vendorId}")
     public List<CiSoftware> getByVendorId(@PathVariable UUID vendorId){
         return ciSoftwareService.getByVendorId(vendorId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteSoftwareById(@PathVariable UUID id){
+        ciSoftwareService.deleteSoftwareById(id);
     }
 }

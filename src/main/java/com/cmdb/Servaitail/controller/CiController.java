@@ -21,6 +21,11 @@ public class CiController {
         return ciService.CreateCi(ci);
     }
 
+    @PutMapping("/{id}")
+    public Ci UpdateCi(@PathVariable UUID id, @RequestBody Ci ci){
+        return ciService.UpdateCi(id,ci);
+    }
+
     @GetMapping
     public List<Ci> getAll(){
         return ciService.getAll();
